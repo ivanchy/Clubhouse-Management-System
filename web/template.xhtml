@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        -->
+        <style type="text/css">.gm-err-container{height:100%;width:100%;display:table;background-color:#e0e0e0;position:relative;left:0;top:0}.gm-err-content{border-radius:1px;padding-top:0;padding-left:10%;padding-right:10%;position:static;vertical-align:middle;display:table-cell}.gm-err-content a{color:#4285f4}.gm-err-icon{text-align:center}.gm-err-title{margin:5px;margin-bottom:20px;color:#616161;font-family:Roboto,Arial,sans-serif;text-align:center;font-size:24px}.gm-err-message{margin:5px;color:#757575;font-family:Roboto,Arial,sans-serif;text-align:center;font-size:12px}.gm-err-autocomplete{padding-left:20px;background-repeat:no-repeat;background-size:15px 15px}</style><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" /><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style { font: 400 11px Roboto, Arial, sans-serif;text-decoration: none; }.gm-style img { max-width: none; }</style>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/common.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/map.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/util.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/marker.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/onion.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/ViewportInfoService.GetViewportInfo?1m6&amp;1m2&amp;1d41.724700927734375&amp;2d-87.63031768798828&amp;2m2&amp;1d42.031494140625&amp;2d-87.62925338745117&amp;2u12&amp;4szh-TW&amp;5e0&amp;6sm%40378000000&amp;7b0&amp;8e0&amp;callback=_xdc_._wby8l3&amp;token=34984"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/stats.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/controls.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2Fwww.csgnetwork.com%2Fcvthtml2xhtml.html&amp;4sAIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&amp;callback=_xdc_._66t4z4&amp;token=114180"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/vt?pb=!1m4!1m3!1i12!2i1050!3i1521!1m4!1m3!1i12!2i1050!3i1522!1m4!1m3!1i12!2i1050!3i1523!2m3!1e0!2sm!3i378065712!3m9!2szh-TW!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e3!12m1!5b1&amp;callback=_xdc_._a2szq&amp;token=23389"></script>
+        <title>Skyland</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /><style>
+            body {font-family: "Lato", sans-serif}
+            .mySlides {display: none}
+        </style>
+    </h:head>
+
+    <h:body>
+        <!-- Navbar -->
+        <ui:insert name="bar">
+            <div class="w3-top">
+
+                <div class="w3-bar w3-black w3-card-2">
+                    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars" /></a>
+                    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+                    <a href="#band" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
+                    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>
+                    <div class="w3-dropdown-hover w3-hide-small">
+                        <button class="w3-padding-large w3-button">FACILITY<i class="fa fa-caret-down" /></button>     
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="#" class="w3-bar-item w3-button">RESTAURANTS</a>
+                            <a href="#" class="w3-bar-item w3-button">SPA &amp; RESORT</a>
+                            <a href="#" class="w3-bar-item w3-button">Art &amp; Culture</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+
+
+                    <a href="faces/login.xhtml" class="w3-padding-large w3-hover-red w3-hide-small w3-right">RESERVATION</a>
+                </div></div>
+        </ui:insert>
+        <!-- Navbar on small screens --><!--
+        <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top: 46px;">
+          <a href="#band" class="w3-bar-item w3-button w3-padding-large">BAND</a>
+          <a href="#tour" class="w3-bar-item w3-button w3-padding-large">TOUR</a>
+          <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
+          <a href="#" class="w3-bar-item w3-button w3-padding-large">MERCH</a></div>
+        -->
+        <!-- Page content -->
+        <ui:insert name="content">
+            <div class="w3-content"  style="max-width: 2000px; margin-top: 46px;">
+                <!-- Automatic Slideshow Images -->
+                <ui:insert name="home">
+                    <div class="mySlides w3-display-container w3-center " style="display: block;">
+                        <img src="clubhouse home1.jpeg" style="width: 100%; height:680px;" alt="" />
+
+                        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+
+                            <h3>Los Angeles</h3>
+
+                            <p><b>We had the best time playing at Venice Beach!</b></p>   
+                        </div>
+                    </div>
+
+                    <div class="mySlides w3-display-container w3-center" style="display: none;">
+                        <img src="clubhouse home2.jpeg" style="width: 100%;height: 680px;" alt="" />
+
+                        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+
+                            <h3>New York</h3>
+
+                            <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
+                        </div>
+                    </div>
+
+                    <div class="mySlides w3-display-container w3-center" style="display: none;">
+                        <img src="clubhouse home3.jpeg" style="width: 100%;height: 680px;" alt="" />
+
+                        <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+
+                            <h3>Chicago</h3>
+
+                            <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
+                        </div>
+                    </div>
+                </ui:insert>
+                <!-- The Band Section -->
+                <ui:insert name="about"> 
+                    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width: 800px; min-height:720px" id="band">
+
+                        <!--<h2 class="w3-wide">SKYLAND</h2>-->
+                        <img src="brand logo.jpg" style="width:20%"/>
+                        <p class="w3-opacity"><i>FREE &sdot; JOYFUL</i></p>
+                        <p class="w3-justify">Description ...</p>
+                        <!--    
+                        <div class="w3-row w3-padding-32">
+                              
+                        <div class="w3-third">
+                                
+                        <p>Name</p>
+                                <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width: 60%;" />
+                              </div>
+                              
+                        <div class="w3-third">
+                                
+                        <p>Name</p>
+                                <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width: 60%;" />
+                              </div>
+                              
+                        <div class="w3-third">
+                                
+                        <p>Name</p>
+                                <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width: 60%;" />
+                              </div>
+                            </div>
+                        -->
+                    </div>
+                </ui:insert>
+                <!-- The Tour Section -->
+                <ui:insert name="news"> 
+                    <div class="w3-black" id="tour">
+
+                        <div class="w3-container w3-content w3-padding-64" style="max-width: 800px; min-height:720px">
+
+                            <h2 class="w3-wide w3-center">Most Recent News</h2>
+
+                            <!--
+                            <p class="w3-opacity w3-center"><i>Remember to book your tickets!</i></p><br />
+                                  
+                            <ul class="w3-ul w3-border w3-white w3-text-grey">
+                                    
+                            <li class="w3-padding">September <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
+                                    
+                            <li class="w3-padding">October <span class="w3-tag w3-red w3-margin-left">Sold out</span></li>
+                                    
+                            <li class="w3-padding">November <span class="w3-badge w3-right w3-margin-right">3</span></li>
+                                  </ul>
+                            -->      
+                            <div class="w3-row-padding w3-padding-32" style="margin: 0px -16px;">
+
+                                <div class="w3-third w3-margin-bottom">
+                                    <!--   <img src="/w3images/newyork.jpg" alt="New York" style="width: 100%;" class="w3-hover-opacity" /> --> 
+
+                                    <div class="w3-container w3-white" >
+
+                                        <p><b>New York</b></p>
+
+                                        <p class="w3-opacity">Fri 27 Nov 2016</p>
+
+                                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display = 'block'">Buy Tickets</button>
+                                    </div> 
+                                </div>
+
+                                <div class="w3-third w3-margin-bottom">
+                                    <!--    <img src="/w3images/paris.jpg" alt="Paris" style="width: 100%;" class="w3-hover-opacity" />
+                                    -->         
+                                    <div class="w3-container w3-white">
+
+                                        <p><b>Paris</b></p>
+
+                                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+
+                                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display = 'block'">Buy Tickets</button>
+                                    </div> 
+                                </div>
+
+                                <div class="w3-third w3-margin-bottom">
+                                    <!--    <img src="/w3images/sanfran.jpg" alt="San Francisco" style="width: 100%;" class="w3-hover-opacity" />
+                                    --> 
+                                    <div class="w3-container w3-white">
+
+                                        <p><b>San Francisco</b></p>
+
+                                        <p class="w3-opacity">Sun 29 Nov 2016</p>
+
+                                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display = 'block'">Buy Tickets</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Ticket Modal -->
+
+                    <div id="ticketModal" class="w3-modal">
+
+                        <div class="w3-modal-content w3-animate-top w3-card-4">
+                            <header class="w3-container w3-teal w3-center w3-padding-32"> 
+                                <span onclick="document.getElementById('ticketModal').style.display = 'none'" class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+
+                                <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right" />Tickets</h2>
+                            </header>
+
+                            <div class="w3-container">
+
+                                <p><label><i class="fa fa-shopping-cart" /> Tickets, $15 per person</label></p>
+                                <input class="w3-input w3-border" placeholder="How many?" type="text" />
+
+                                <p><label><i class="fa fa-user" /> Send To</label></p>
+                                <input class="w3-input w3-border" placeholder="Enter email" type="text" />
+                                <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY <i class="fa fa-check" /></button>
+                                <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display = 'none'">Close <i class="fa fa-remove" /></button>
+
+                                <p class="w3-right">Need <a href="#" class="w3-text-blue">help?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- The Contact Section -->
+
+                    <div class="w3-container w3-content w3-padding-64" style="max-width: 800px;" id="contact">
+
+                        <h2 class="w3-wide w3-center">CONTACT</h2>
+
+                        <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
+
+                        <div class="w3-row w3-padding-32">
+
+                            <div class="w3-col m6 w3-large w3-margin-bottom">
+                                <i class="fa fa-map-marker" style="width: 30px;" /> Chicago, US<br />
+                                <i class="fa fa-phone" style="width: 30px;" /> Phone: +00 151515<br />
+                                <i class="fa fa-envelope" style="width: 30px;"> </i> Email: mail@mail.com<br />
+                            </div>
+
+                            <div class="w3-col m6">
+                                <form action="/action_page.php" target="_blank">
+
+                                    <div class="w3-row-padding" style="margin: 0px -16px 8px;">
+
+                                        <div class="w3-half">
+                                            <input class="w3-input w3-border" placeholder="Name" required="" name="Name" type="text" />
+                                        </div>
+
+                                        <div class="w3-half">
+                                            <input class="w3-input w3-border" placeholder="Email" required="" name="Email" type="text" />
+                                        </div>
+                                    </div>
+                                    <input class="w3-input w3-border" placeholder="Message" required="" name="Message" type="text" />
+                                    <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </ui:insert> 
+                <!-- End Page Content --></div><!-- Add Google Maps -->
+        </ui:insert>
+        <ui:insert name="contract">
+            <div id="googleMap" style="height:400px;" ></div>
+            <script>
+                function myMap() {
+                myCenter = new google.maps.LatLng(41.878114, - 87.629798);
+                var mapOptions = {
+                center:myCenter,
+                        zoom:12, scrollwheel: false, draggable: false,
+                        mapTypeId:google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+                var marker = new google.maps.Marker({
+                position: myCenter,
+                });
+                marker.setMap(map);
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyN6j64lpa2T253VQUrfDrsJzAxUQDIJ0&amp;callback=myMap"></script>
+            <!--
+            To use this code on your website, get a free API key from Google.
+            Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+            -->
+            <!-- Footer --><footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+                <i class="fa fa-facebook-official w3-hover-opacity" />
+                <i class="fa fa-instagram w3-hover-opacity" />
+                <i class="fa fa-snapchat w3-hover-opacity" />
+                <i class="fa fa-pinterest-p w3-hover-opacity" />
+                <i class="fa fa-twitter w3-hover-opacity" />
+                <i class="fa fa-linkedin w3-hover-opacity" />
+
+                <!--<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>--></footer>
+
+            <script>
+            // Automatic Slideshow - change image every 4 seconds
+                var myIndex = 0;
+                carousel();
+                function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i &lt; x.length; i++) {
+                x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex &gt; x.length) {myIndex = 1}
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 4000);
+                }
+            // Used to toggle the menu on small screens when clicking on the menu button
+                function myFunction() {
+                var x = document.getElementById("navDemo");
+                if (x.className.indexOf("w3-show") == - 1) {
+                x.className += " w3-show";
+                } else {
+                x.className = x.className.replace(" w3-show", "");
+                }
+                }
+            // When the user clicks anywhere outside of the modal, close it
+                var modal = document.getElementById('ticketModal');
+                window.onclick = function(event) {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                }
+                }
+            </script>
+        </ui:insert>
+    </h:body>
+</html>

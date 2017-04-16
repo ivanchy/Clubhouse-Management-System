@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template.xhtml">
+            <ui:define name="bar">
+                <div class="w3-top">
+
+                    <div class="w3-bar w3-black w3-card-2">
+                        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars" /></a>
+                        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+                        <a href="#band" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
+                        <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>
+                        <div class="w3-dropdown-hover w3-hide-small">
+                            <button class="w3-padding-large w3-button" title="More">FACILITY<i class="fa fa-caret-down" /></button>     
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" class="w3-bar-item w3-button">RESTAURANTS</a>
+                                <a href="#" class="w3-bar-item w3-button">SPA &amp; RESORT</a>
+                                <a href="#" class="w3-bar-item w3-button">Art &amp; Culture</a>
+                            </div>
+                        </div>
+                        <a href="booking.xhtml" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BOOKING</a>
+                        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+
+
+                        <div class="w3-dropdown-hover w3-hide-small w3-hover-red w3-right">
+                            <button class="w3-padding-large w3-button" title="More">USER<i class="fa fa-caret-down" /></button>     
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" class="w3-bar-item w3-button">LOGOUT</a>
+                            </div>
+                        </div>
+
+                    </div></div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
