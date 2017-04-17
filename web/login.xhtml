@@ -79,7 +79,7 @@
                         <h:form>
                             <h:inputText value="#{loginManagedBean.user}" required="required"/>
                             <h:inputText value="#{loginManagedBean.pwd}" required="required"/>
-                            <h:commandButton class="btn btn-primary btn-block btn-large" onclick="#{loginManagedBean.validateUsernamePassword()}" value="Let me in."/>
+                            <h:commandButton class="btn btn-primary btn-block btn-large" action="#{loginManagedBean.validateUsernamePassword()}" value="Let me in."/>
                         </h:form>  
                     </div>
                 </h:body>
