@@ -52,11 +52,15 @@ public class loginManagedBean implements Serializable {
 
     //validate login
     public String validateUsernamePassword() {
-        boolean valid = LoginDAO.validate(user, pwd);
+        LoginDAO loginDAO = new LoginDAO();
+
+        boolean valid = loginDAO.validate(user, pwd);
         if (valid) {
             HttpSession session = SessionUtils.getSession();
             session.setAttribute("username", user);
-            return "customer_home_page";
+            String type = loginDAO.type();
+            type += "_home_page";
+            return type;
         } else {
             FacesContext.getCurrentInstance().addMessage(
                     null,
@@ -71,9 +75,10 @@ public class loginManagedBean implements Serializable {
     public String logout() {
         HttpSession session = SessionUtils.getSession();
         session.invalidate();
-        return "login";
+        return "index";
     }
+
     public loginManagedBean() {
     }
-    
+
 }
