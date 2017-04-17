@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -230,7 +231,7 @@
 
                         <h2 class="w3-wide w3-center">CONTACT</h2>
 
-                        <p class="w3-opacity w3-center"><i>Fan? Drop a note!</i></p>
+                        <p class="w3-opacity w3-center"><i>Anything? Just tell us!</i></p>
 
                         <div class="w3-row w3-padding-32">
 
@@ -241,21 +242,21 @@
                             </div>
 
                             <div class="w3-col m6">
-                                <form action="/action_page.php" target="_blank">
+                                <h:form>
 
                                     <div class="w3-row-padding" style="margin: 0px -16px 8px;">
 
                                         <div class="w3-half">
-                                            <input class="w3-input w3-border" placeholder="Name" required="" name="Name" type="text" />
+                                            <h:inputText class="w3-input w3-border" a:placeholder="Name" required="true"/>
                                         </div>
 
                                         <div class="w3-half">
-                                            <input class="w3-input w3-border" placeholder="Email" required="" name="Email" type="text" />
+                                            <h:inputText class="w3-input w3-border" a:placeholder="Email" required="true"/>
                                         </div>
                                     </div>
-                                    <input class="w3-input w3-border" placeholder="Message" required="" name="Message" type="text" />
-                                    <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-                                </form>
+                                    <h:inputText class="w3-input w3-border" a:placeholder="Message" required="true"/>
+                                    <h:commandButton class="w3-button w3-black w3-section w3-right" value="SEND"/>
+                                </h:form>
                             </div>
                         </div>
                     </div>

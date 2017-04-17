@@ -4,40 +4,71 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>SKYLAND</title>
+        <title>W3.CSS</title>
     </h:head>
-    <h:body>
-        <ui:composition template="template.xhtml">
-             <ui:define name="bar">
-                <div class="w3-top">
+    <h:body class="w3-black">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /><style>
+            body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+            .w3-row-padding img {margin-bottom: 12px}
+            /* Set the width of the sidebar to 120px */
+            .w3-sidebar {width: 120px;background: #222;}
+            /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+            #main {margin-left: 120px}
+            /* Remove margins from "page content" on small screens */
+            @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+        </style>
+        <!-- Icon Bar (Sidebar - hidden on small screens) --><nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+            <!-- Avatar image in top left corner -->
+            <img src="/w3images/avatar_smoke.jpg" style="width: 100%;" alt="" />
+            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+                <i class="fa fa-home w3-xxlarge" />
 
-                    <div class="w3-bar w3-black w3-card-2">
-                        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars" /></a>
-                        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-                        <a href="#band" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
-                        <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>
-                        <div class="w3-dropdown-hover w3-hide-small">
-                            <button class="w3-padding-large w3-button" title="More">FACILITY<i class="fa fa-caret-down" /></button>     
-                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" class="w3-bar-item w3-button">RESTAURANTS</a>
-                                <a href="#" class="w3-bar-item w3-button">SPA &amp; RESORT</a>
-                                <a href="#" class="w3-bar-item w3-button">Art &amp; Culture</a>
-                            </div>
-                        </div>
-                        <a href="booking.xhtml" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BOOKING</a>
-                        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+                <p>HOME</p>
+            </a>
+            <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge" />
 
+                <p>USER</p>
+            </a>
+            <a href="login.xhtml" class="w3-bar-item w3-button w3-padding-large w3-hover-black" target="main">
+                <i class="fa fa-eye w3-xxlarge" />
 
-                        <div class="w3-dropdown-hover w3-hide-small w3-hover-red w3-right">
-                            <button class="w3-padding-large w3-button"><h:outputLabel value="USER"/><i class="fa fa-caret-down" /></button>     
-                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" class="w3-bar-item w3-button">LOGOUT</a>
-                            </div>
-                        </div>
+                <p>FACILITY</p>
+            </a>
+            <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-envelope w3-xxlarge" />
 
-                    </div></div>
-            </ui:define>
-        </ui:composition> 
+                <p>MESSAGE</p>
+            </a>
+            <p>
+                <div class="w3-dropdown-hover w3-hide-small w3-hover-red w3-right">
+                    <button class="w3-padding-large w3-button"><h:outputLabel value="USER"/><i class="fa fa-caret-down" /></button>     
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="#" class="w3-bar-item w3-button">LOGOUT</a>
+                    </div>
+                </div>  
+            </p>
+            <!--
+            <p>
+                <iframe src="http://free.timeanddate.com/clock/i5ohhihj/n102/fcfff/tc222/pct/tt0/tw0/tm1/tb4" frameborder="0" width="87" height="35" allowTransparency="true" class="w3-display-bottomleft"></iframe>    
+            </p>
+            -->
+            <p id="datetime" class="w3-display-bottomleft"/>
+        </nav>
+        <div id="main">
+            <iframe src="index.xhtml" name="main" frameborder="0" scrolling="no" onload="resizeIframe(this)" width="100%" class="w3-white" />
+        </div>
+        <script>
+            function resizeIframe(obj) {
+                obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+            }
+            var myVar = setInterval(myTimer, 1000);
+            function myTimer() {
+                var d = new Date();
+                document.getElementById("datetime").innerHTML = d.toDateString() +"<br/>"+ d.toLocaleTimeString();
+            }
+        </script>
     </h:body>
-</html>
 
+</html>
