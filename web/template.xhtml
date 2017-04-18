@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -247,15 +248,17 @@
                                     <div class="w3-row-padding" style="margin: 0px -16px 8px;">
 
                                         <div class="w3-half">
-                                            <h:inputText class="w3-input w3-border" a:placeholder="Name" required="true"/>
+                                            <h:inputText class="w3-input w3-border" a:placeholder="Name" required="true" value="#{contactManagedBean.name}"/>
                                         </div>
 
                                         <div class="w3-half">
-                                            <h:inputText class="w3-input w3-border" a:placeholder="Email" required="true"/>
+                                            <h:inputText class="w3-input w3-border" a:placeholder="Email" required="true" value="#{contactManagedBean.email}" requiredMessage="Please enter your email address." validatorMessage="Invalid email format">
+                                                <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                            </h:inputText>
                                         </div>
                                     </div>
-                                    <h:inputText class="w3-input w3-border" a:placeholder="Message" required="true"/>
-                                    <h:commandButton class="w3-button w3-black w3-section w3-right" value="SEND"/>
+                                    <h:inputText class="w3-input w3-border" a:placeholder="Message" required="true" value="#{contactManagedBean.message}"/>
+                                    <h:commandButton class="w3-button w3-black w3-section w3-right" value="SEND" onclick="#{contactManagedBean.send()}"/>
                                 </h:form>
                             </div>
                         </div>
@@ -296,7 +299,7 @@
                 <!--<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>--></footer>
 
             <script>
-            // Automatic Slideshow - change image every 4 seconds
+                // Automatic Slideshow - change image every 4 seconds
                 var myIndex = 0;
                 carousel();
                 function carousel() {
@@ -310,7 +313,7 @@
                 x[myIndex - 1].style.display = "block";
                 setTimeout(carousel, 4000);
                 }
-            // Used to toggle the menu on small screens when clicking on the menu button
+                // Used to toggle the menu on small screens when clicking on the menu button
                 function myFunction() {
                 var x = document.getElementById("navDemo");
                 if (x.className.indexOf("w3-show") == - 1) {
@@ -319,7 +322,7 @@
                 x.className = x.className.replace(" w3-show", "");
                 }
                 }
-            // When the user clicks anywhere outside of the modal, close it
+                // When the user clicks anywhere outside of the modal, close it
                 var modal = document.getElementById('ticketModal');
                 window.onclick = function(event) {
                 if (event.target == modal) {
