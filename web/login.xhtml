@@ -78,7 +78,7 @@
                         <h1>Login</h1>
                         <h:form>
                             <h:inputText value="#{loginManagedBean.user}" required="required"/>
-                            <h:inputText value="#{loginManagedBean.pwd}" required="required"/>
+                            <h:inputSecret value="#{loginManagedBean.pwd}" required="required"/>
                             <h:commandButton class="btn btn-primary btn-block btn-large" action="#{loginManagedBean.validateUsernamePassword()}" value="Let me in."/>
                         </h:form>  
                     </div>
