@@ -74,7 +74,7 @@
 
                             <h3>Welcome</h3>
 
-                            <p><b>Welcome to the Clubhouse! Enjoy your time.</b></p>   
+                            <p><b>Welcome to Skyland! Enjoy your time.</b></p>   
                         </div>
                     </div>
 
@@ -106,9 +106,11 @@
 
                         <!--<h2 class="w3-wide">SKYLAND</h2>-->
                         <img src="brand logo.jpg" style="width:20%"/>
-                        <p class="w3-opacity"><i>FREE &sdot; JOYFUL</i></p>
+                        <p class="w3-opacity"><i>JOYFUL &sdot; CHEERFUL</i></p>
                         <p class="w3-justify">
-                            Description ...
+                            Skyland is the place help you to enjoy the daily life. Featuring comprehensive facilities, including gym room, 
+                            swimming pool, sauna rooms, study rooms, and BBQ, give you the most comfortable place in Hong Kong. 
+                            Just 15 minutes from Mong Kok, you can enjoy the facilities inside the Skyland.
                         </p>
                         <!--    
                         <div class="w3-row w3-padding-32">
@@ -271,19 +273,19 @@
         <ui:insert name="contract">
             <div id="googleMap" style="height:400px;" ></div>
             <script>
-                function myMap() {
-                myCenter = new google.maps.LatLng(41.878114, - 87.629798);
-                var mapOptions = {
-                center:myCenter,
-                        zoom:12, scrollwheel: false, draggable: false,
-                        mapTypeId:google.maps.MapTypeId.ROADMAP
-                };
-                var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
-                var marker = new google.maps.Marker({
-                position: myCenter,
-                });
-                marker.setMap(map);
-                }
+                                    function myMap() {
+                                    myCenter = new google.maps.LatLng(41.878114, - 87.629798);
+                                    var mapOptions = {
+                                    center:myCenter,
+                                            zoom:12, scrollwheel: false, draggable: false,
+                                            mapTypeId:google.maps.MapTypeId.ROADMAP
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+                                    var marker = new google.maps.Marker({
+                                    position: myCenter,
+                                    });
+                                    marker.setMap(map);
+                                    }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyN6j64lpa2T253VQUrfDrsJzAxUQDIJ0&amp;callback=myMap"></script>
             <!--
@@ -301,36 +303,36 @@
                 <!--<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>--></footer>
 
             <script>
-                // Automatic Slideshow - change image every 4 seconds
-                var myIndex = 0;
-                carousel();
-                function carousel() {
-                var i;
-                var x = document.getElementsByClassName("mySlides");
-                for (i = 0; i &lt; x.length; i++) {
-                x[i].style.display = "none";
-                }
-                myIndex++;
-                if (myIndex &gt; x.length) {myIndex = 1}
-                x[myIndex - 1].style.display = "block";
-                setTimeout(carousel, 4000);
-                }
-                // Used to toggle the menu on small screens when clicking on the menu button
-                function myFunction() {
-                var x = document.getElementById("navDemo");
-                if (x.className.indexOf("w3-show") == - 1) {
-                x.className += " w3-show";
-                } else {
-                x.className = x.className.replace(" w3-show", "");
-                }
-                }
-                // When the user clicks anywhere outside of the modal, close it
-                var modal = document.getElementById('ticketModal');
-                window.onclick = function(event) {
-                if (event.target == modal) {
-                modal.style.display = "none";
-                }
-                }
+                                    // Automatic Slideshow - change image every 4 seconds
+                                    var myIndex = 0;
+                                    carousel();
+                                    function carousel() {
+                                    var i;
+                                    var x = document.getElementsByClassName("mySlides");
+                                    for (i = 0; i &lt; x.length; i++) {
+                                    x[i].style.display = "none";
+                                    }
+                                    myIndex++;
+                                    if (myIndex &gt; x.length) {myIndex = 1}
+                                    x[myIndex - 1].style.display = "block";
+                                    setTimeout(carousel, 4000);
+                                    }
+                                    // Used to toggle the menu on small screens when clicking on the menu button
+                                    function myFunction() {
+                                    var x = document.getElementById("navDemo");
+                                    if (x.className.indexOf("w3-show") == - 1) {
+                                    x.className += " w3-show";
+                                    } else {
+                                    x.className = x.className.replace(" w3-show", "");
+                                    }
+                                    }
+                                    // When the user clicks anywhere outside of the modal, close it
+                                    var modal = document.getElementById('ticketModal');
+                                    window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                    modal.style.display = "none";
+                                    }
+                                    }
             </script>
         </ui:insert>
     </h:body>
