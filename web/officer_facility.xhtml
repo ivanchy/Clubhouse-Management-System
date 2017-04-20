@@ -53,19 +53,17 @@
                 </div></div>
         </ui:insert>
         <ui:insert class="content">
-            <div class="w3-container w3-content w3-center w3-padding-64" style=" min-height:720px" id="facilty">
-                <h:panelGrid columns="1" style="border: solid 1px" width="35%">
-                    <f:facet name="caption">
-                        <h:outputText value="Facility"/>
-                    </f:facet>
-                    <ui:repeat var="item" value="#{facilityManagedBean.fac}">
-                        <h:column>
-                            <h:outputText value="#{item}"/>
-                            <br/>
-                        </h:column>
-                    </ui:repeat>
-                </h:panelGrid>
+
+            <div class="w3-container w3-content w3-center w3-padding-64" style=" min-height:720px" id="facility">
+
+                <table class="table-facility" border="1" style="border: solid 1px" width="40%">
+                    <caption align="center">List of Facilities</caption>
+                    <thead><th>Name</th></thead>
+                    <h:outputText escape="false" value="#{facilityManagedBean.display()}"/>
+                </table>
+
             </div>
+
         </ui:insert>
 
     </h:body>

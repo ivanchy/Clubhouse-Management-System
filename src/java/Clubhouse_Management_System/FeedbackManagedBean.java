@@ -5,7 +5,6 @@
  */
 package Clubhouse_Management_System;
 
-import java.io.PrintWriter;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -15,8 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.Resource;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -36,8 +33,6 @@ public class FeedbackManagedBean implements Serializable {
     private String message;
     private int size = 0;
     private int count = 0;
-    private String[] feedback;
-    private ArrayList<String> fbs = new ArrayList<>();
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
@@ -65,16 +60,10 @@ public class FeedbackManagedBean implements Serializable {
         this.message = message;
     }
 
-    public ArrayList<String> getFbs() {
-        return process();
-    }
+    public String display() {
 
-    public void setFbs(ArrayList<String> fbs) {
-        this.fbs = fbs;
-    }
+        String output = "";
 
-    public ArrayList<String> process() {
-        
         try {
             Context ctx = new InitialContext();
             cms = (DataSource) ctx.lookup("java:app/jdbc/cms");
@@ -82,22 +71,20 @@ public class FeedbackManagedBean implements Serializable {
             ps = con.prepareStatement("Select name, message from feedback");
 
             rs = ps.executeQuery();
-            fbs.clear();
+
             while (rs.next()) {
                 //Retrieve by column name
                 name = rs.getString("name");
                 message = rs.getString("message");
 
-                fbs.add(name + ": " + message);
-//                fbs.add(name);
-//                fbs.add(message);
-
+                output += "<tr><td>" + name + "</td><td>" + message + "</td></tr>";
             }
             con.close();
+
         } catch (Exception ex) {
             System.out.println("Login error -->" + ex.getMessage());
         }
-        return fbs;
+        return output;
     }
 
 }
