@@ -36,7 +36,7 @@ public class FeedbackManagedBean implements Serializable {
     private int size = 0;
     private int count = 0;
     private String[] feedback;
-    private ArrayList<String> fbs = new ArrayList<String>();
+    private ArrayList<String> fbs = new ArrayList<>();
 
     /**
      * Creates a new instance of MessageManagedBean
@@ -87,9 +87,10 @@ public class FeedbackManagedBean implements Serializable {
                 name = rs.getString("name");
                 message = rs.getString("message");
 
-                fbs.add(name + " | " + message);
+                fbs.add(name + ": " + message);
+//                fbs.add(name);
 //                fbs.add(message);
-
+                
             }
             con.close();
         } catch (Exception ex) {
