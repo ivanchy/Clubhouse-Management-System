@@ -5,14 +5,17 @@
  */
 package Clubhouse_Management_System;
 
+import java.io.PrintWriter;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.naming.Context;
@@ -30,23 +33,16 @@ public class FeedbackManagedBean implements Serializable {
     @Resource(name = "cms")
     private String name;
     private String message;
-    private ResultSet rs;
     private int size = 0;
     private int count = 0;
+    private String[] feedback;
+    private ArrayList<String> fbs = new ArrayList<String>();
 
     /**
      * Creates a new instance of MessageManagedBean
      */
     public FeedbackManagedBean() {
 
-    }
-
-    public ResultSet getRs() {
-        return rs;
-    }
-
-    public void setRs(ResultSet rs) {
-        this.rs = rs;
     }
 
     public String getName() {
@@ -65,7 +61,15 @@ public class FeedbackManagedBean implements Serializable {
         this.message = message;
     }
 
-    public String receive() {
+    public ArrayList<String> getFbs() {
+        return process();
+    }
+
+    public void setFbs(ArrayList<String> fbs) {
+        this.fbs = fbs;
+    }
+
+    public ArrayList<String> process() {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -75,21 +79,23 @@ public class FeedbackManagedBean implements Serializable {
             DataSource ds = (DataSource) ctx.lookup("java:app/jdbc/cms");
             con = ds.getConnection();
             ps = con.prepareStatement("Select name, message from feedback");
-            
-            rs = ps.executeQuery();
 
+            rs = ps.executeQuery();
+            fbs.clear();
             while (rs.next()) {
                 //Retrieve by column name
                 name = rs.getString("name");
                 message = rs.getString("message");
-                //Display values
-                System.out.print("Name: " + name);
-                System.out.print(", Message: " + message);
+
+                fbs.add(name + " | " + message);
+//                fbs.add(message);
+
             }
+            con.close();
         } catch (Exception ex) {
             System.out.println("Login error -->" + ex.getMessage());
         }
-        return name;
+        return fbs;
     }
 
 }
