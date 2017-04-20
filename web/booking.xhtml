@@ -1,12 +1,159 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Skyland</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+        <link rel="stylesheet" href="/resources/demos/style.css"/>
     </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+    <style>
+        .responstable {
+            margin: 1em 0;
+            width: 100%;
+            overflow: hidden;
+            background: #FFF;
+            color: #024457;
+            border-radius: 10px;
+            border: 1px solid #167F92;
+        }
+        .responstable tr {
+            border: 1px solid #D9E4E6;
+        }
+        .responstable tr:nth-child(odd) {
+            background-color: #EAF3F3;
+        }
+        .responstable th {
+            display: none;
+            border: 1px solid #FFF;
+            background-color: #167F92;
+            color: #FFF;
+            padding: 1em;
+        }
+        .responstable th:first-child {
+            display: table-cell;
+            text-align: center;
+        }
+        .responstable th:nth-child(2) {
+            display: table-cell;
+        }
+        .responstable th:nth-child(2) span {
+            display: none;
+        }
+        .responstable th:nth-child(2):after {
+            content: attr(data-th);
+        }
+        @media (min-width: 480px) {
+            .responstable th:nth-child(2) span {
+                display: block;
+            }
+            .responstable th:nth-child(2):after {
+                display: none;
+            }
+        }
+        .responstable td {
+            display: block;
+            word-wrap: break-word;
+            max-width: 7em;
+        }
+        .responstable td:first-child {
+            display: table-cell;
+            text-align: center;
+            border-right: 1px solid #D9E4E6;
+        }
+        @media (min-width: 480px) {
+            .responstable td {
+                border: 1px solid #D9E4E6;
+            }
+        }
+        .responstable th, .responstable td {
+            text-align: left;
+            margin: .5em 1em;
+        }
+        @media (min-width: 480px) {
+            .responstable th, .responstable td {
+                display: table-cell;
+                padding: 1em;
+            }
+        }
 
+        body {
+            padding: 0 2em;
+            font-family: Arial, sans-serif;
+            color: #024457;
+            background: #f2f2f2;
+        }
+
+        h1 {
+            font-family: Verdana;
+            font-weight: normal;
+            color: #024457;
+        }
+        h1 span {
+            color: #167F92;
+        }
+    </style>
+
+    <h:body>
+        <h:form id="form">
+            <!--
+            Search by service :
+            <h:selectOneMenu style="text-align: center" value="#{bookingManagedBean.selected}"> 
+                <f:selectItems  value = "#{bookingManagedBean.findService()}"/>
+            </h:selectOneMenu>
+            
+            <h:commandButton value="OK"/>
+            Search by datetime :
+            <h:outputText value="#{bookingManagedBean.findByService()}" escape="false"/>
+            <h:inputText id="datepicker"/>
+            
+            <h:selectOneListbox value="time" style="text-align: center">
+                <f:selectItem itemValue = "8" itemLabel =  "08:00 - 09:00" /> 
+                <f:selectItem itemValue = "9" itemLabel =  "09:00 - 10:00" /> 
+                <f:selectItem itemValue = "10" itemLabel = "10:00 - 11:00" /> 
+                <f:selectItem itemValue = "11" itemLabel = "11:00 - 12:00" /> 
+
+                <f:selectItem itemValue = "12" itemLabel = "12:00 - 13:00" /> 
+                <f:selectItem itemValue = "13" itemLabel = "13:00 - 14:00" /> 
+                <f:selectItem itemValue = "14" itemLabel = "14:00 - 15:00" />
+                <f:selectItem itemValue = "15" itemLabel = "15:00 - 16:00" />
+                <f:selectItem itemValue = "16" itemLabel = "16:00 - 17:00" /> 
+                <f:selectItem itemValue = "17" itemLabel = "17:00 - 18:00" /> 
+                <f:selectItem itemValue = "18" itemLabel = "18:00 - 19:00" /> 
+                <f:selectItem itemValue = "19" itemLabel = "19:00 - 20:00" />
+                <f:selectItem itemValue = "20" itemLabel = "20:00 - 21:00" /> 
+                <f:selectItem itemValue = "21" itemLabel = "21:00 - 22:00" />
+            </h:selectOneListbox>
+
+
+            -->
+
+            <h1>Booking <span>facility</span> by <span>service</span></h1><br/>
+
+            <table class="responstable">
+
+                <tr>
+                    <th>
+                        <h:selectOneMenu style="text-align: center" value="#{bookingManagedBean.selected}" onchange="submit()"> 
+                            <f:selectItem itemLabel="-- select service --" itemValue="#{null}"/>
+                            <f:selectItems  value = "#{bookingManagedBean.findService()}"/>
+                        </h:selectOneMenu>
+                    </th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Place</th>
+                </tr>
+                <h:outputText escape="false" value="#{bookingManagedBean.findByService()}"/>
+            </table>
+        </h:form>
+    </h:body>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"/>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"/>
+    <script>
+                            $(function () {
+                                $("#form\\:datepicker").datepicker();
+                            });
+    </script>
+
+</html>
