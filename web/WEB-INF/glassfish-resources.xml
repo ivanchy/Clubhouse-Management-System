@@ -8,4 +8,5 @@
         <property name="Password" value="6Z52xTwUNeW6"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/cms" object-type="user" pool-name="MyDSPool"/>
+    <jdbc-resource enabled="true" jndi-name="java:app/cms" object-type="user" pool-name="MyDSPool"/>
 </resources>

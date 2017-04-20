@@ -5,19 +5,16 @@
  */
 package Clubhouse_Management_System;
 
-import java.io.PrintWriter;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.Resource;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -26,27 +23,39 @@ import javax.sql.DataSource;
  *
  * @author johnleung
  */
-@Named(value = "feedbackManagedBean")
+@Named(value = "facilityManagedBean")
 @SessionScoped
-public class FeedbackManagedBean implements Serializable {
+public class FacilityManagedBean implements Serializable {
 
     @Resource(name = "cms")
     private DataSource cms;
-    private String name;
-    private String message;
-    private int size = 0;
-    private int count = 0;
-    private String[] feedback;
-    private ArrayList<String> fbs = new ArrayList<>();
     private Connection con = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-
+    private ArrayList<String> fac = new ArrayList<>();
+    private String name;
+    
     /**
-     * Creates a new instance of MessageManagedBean
+     * Creates a new instance of FacilityManagedBean
      */
-    public FeedbackManagedBean() {
+    public FacilityManagedBean() {
+        
+    }
 
+    public ResultSet getRs() {
+        return rs;
+    }
+
+    public void setRs(ResultSet rs) {
+        this.rs = rs;
+    }
+
+    public ArrayList<String> getFac() {
+        return display();
+    }
+
+    public void setFac(ArrayList<String> fac) {
+        this.fac = fac;
     }
 
     public String getName() {
@@ -57,47 +66,27 @@ public class FeedbackManagedBean implements Serializable {
         this.name = name;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public ArrayList<String> getFbs() {
-        return process();
-    }
-
-    public void setFbs(ArrayList<String> fbs) {
-        this.fbs = fbs;
-    }
-
-    public ArrayList<String> process() {
+    public ArrayList<String> display() {
         
         try {
             Context ctx = new InitialContext();
             cms = (DataSource) ctx.lookup("java:app/jdbc/cms");
             con = cms.getConnection();
-            ps = con.prepareStatement("Select name, message from feedback");
+            ps = con.prepareStatement("Select * from facility");
 
             rs = ps.executeQuery();
-            fbs.clear();
+            fac.clear();
             while (rs.next()) {
                 //Retrieve by column name
                 name = rs.getString("name");
-                message = rs.getString("message");
 
-                fbs.add(name + ": " + message);
-//                fbs.add(name);
-//                fbs.add(message);
-
+                fac.add(name);
+                System.out.println(name);
             }
             con.close();
         } catch (Exception ex) {
             System.out.println("Login error -->" + ex.getMessage());
         }
-        return fbs;
+        return fac;
     }
-
 }
