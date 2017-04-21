@@ -1,12 +1,70 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!--
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        -->
+        <style type="text/css">.gm-err-container{height:100%;width:100%;display:table;background-color:#e0e0e0;position:relative;left:0;top:0}.gm-err-content{border-radius:1px;padding-top:0;padding-left:10%;padding-right:10%;position:static;vertical-align:middle;display:table-cell}.gm-err-content a{color:#4285f4}.gm-err-icon{text-align:center}.gm-err-title{margin:5px;margin-bottom:20px;color:#616161;font-family:Roboto,Arial,sans-serif;text-align:center;font-size:24px}.gm-err-message{margin:5px;color:#757575;font-family:Roboto,Arial,sans-serif;text-align:center;font-size:12px}.gm-err-autocomplete{padding-left:20px;background-repeat:no-repeat;background-size:15px 15px}</style><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}</style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" /><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style { font: 400 11px Roboto, Arial, sans-serif;text-decoration: none; }.gm-style img { max-width: none; }</style>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/common.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/map.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/util.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/marker.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/onion.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/ViewportInfoService.GetViewportInfo?1m6&amp;1m2&amp;1d41.724700927734375&amp;2d-87.63031768798828&amp;2m2&amp;1d42.031494140625&amp;2d-87.62925338745117&amp;2u12&amp;4szh-TW&amp;5e0&amp;6sm%40378000000&amp;7b0&amp;8e0&amp;callback=_xdc_._wby8l3&amp;token=34984"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/stats.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/28/8/intl/zh_tw/controls.js"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2Fwww.csgnetwork.com%2Fcvthtml2xhtml.html&amp;4sAIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&amp;callback=_xdc_._66t4z4&amp;token=114180"></script>
+        <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/vt?pb=!1m4!1m3!1i12!2i1050!3i1521!1m4!1m3!1i12!2i1050!3i1522!1m4!1m3!1i12!2i1050!3i1523!2m3!1e0!2sm!3i378065712!3m9!2szh-TW!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e3!12m1!5b1&amp;callback=_xdc_._a2szq&amp;token=23389"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /><style>
+            body {font-family: "Lato", sans-serif}
+            .mySlides {display: none}
+        </style>
+        <title>User Management</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <!-- Navbar -->
+        <ui:insert name="bar">
+            <div class="w3-top">
+
+                <div class="w3-bar w3-black w3-card-2">
+                    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars" /></a>
+                    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+                    <a href="#band" class="w3-bar-item w3-button w3-padding-large">ABOUT</a>
+                    <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">NEWS</a>
+                    <div class="w3-dropdown-hover w3-hide-small">
+                        <button class="w3-padding-large w3-button">FACILITY<i class="fa fa-caret-down" /></button>     
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="faces/restaurant.xhtml" class="w3-bar-item w3-button">RESTAURANTS</a>
+                            <a href="faces/spa-resort.xhtml" class="w3-bar-item w3-button">SPA &amp; RESORT</a>
+                            <a href="faces/art-culture.xhtml" class="w3-bar-item w3-button">Art &amp; Culture</a>
+                        </div>
+                    </div>
+                    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+
+
+                    <!--<a href="faces/login.xhtml" class="w3-padding-large w3-hover-red w3-hide-small w3-right">RESERVATION</a>-->
+                </div></div>
+        </ui:insert>
+        <ui:insert class="content">
+
+            <div class="w3-container w3-content w3-center w3-padding-64" style=" min-height:720px" id="facility">
+
+                <table class="table-facility" border="1" style="border: solid 1px" width="40%">
+                    <caption align="center">List of Users</caption>
+                    <thead><th>Name</th><th>Type</th></thead>
+                    <h:outputText escape="false" value="#{userManagedBean.display()}"/>
+                </table>
+
+            </div>
+
+        </ui:insert>
+
     </h:body>
 </html>
 

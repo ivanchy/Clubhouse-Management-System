@@ -5,6 +5,7 @@
  */
 package Clubhouse_Management_System;
 
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,31 +20,36 @@ import javax.sql.DataSource;
  * @author johnleung
  */
 @Stateless
-public class FacilitySessionBean {
+public class UserSessionBean {
 
     @Resource(name = "cms")
     private DataSource cms;
+    private Connection con = null;
+    private PreparedStatement ps = null;
+    private ResultSet rs = null;
+    private String name;
+    private String type;
 
     public String display() {
-        Connection con = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        String name;
+
         String output = "";
 
         try {
             Context ctx = new InitialContext();
             cms = (DataSource) ctx.lookup("java:app/jdbc/cms");
             con = cms.getConnection();
-            ps = con.prepareStatement("Select * from facility");
+            ps = con.prepareStatement("Select uname, type from `Users`");
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 //Retrieve by column name
-                name = rs.getString("name");
+                name = rs.getString("uname");
+                type = rs.getString("type");
 
-                output += "<tr><td>" + rs.getString("name") + "</td></tr>";
+                System.out.println("Name: " + name + ", Type: " + type);
+                
+                output += "<tr><td>" + name + "</td><td>" + type + "</td></tr>";
 
             }
             con.close();
