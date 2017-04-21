@@ -58,6 +58,10 @@ public class contactManagedBean implements Serializable {
         contactSessionBeanRemote.send(name, email, message);
     }
     
+    public String receive() {
+        return contactSessionBeanRemote.receive();
+    }
+    
     public contactManagedBean() {
     }
     
