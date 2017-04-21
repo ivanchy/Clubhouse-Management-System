@@ -24,7 +24,7 @@
         </style>
         <!-- Icon Bar (Sidebar - hidden on small screens) --><nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
             <!-- Avatar image in top left corner -->
-            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+            <a href="index.xhtml" class="w3-bar-item w3-button w3-padding-large w3-black" target="main">
                 <i class="fa fa-home w3-xxlarge" />
 
                 <p>HOME</p>
@@ -51,7 +51,7 @@
             </a>
             <p>
                 <div class="w3-dropdown-hover w3-hide-small w3-hover-red w3-right">
-                    <button class="w3-padding-large w3-button"><h:outputLabel value="USER"/><i class="fa fa-caret-down" /></button>     
+                    <button class="w3-padding-large w3-button"><h:outputLabel value="#{loginManagedBean.user}"/><i class="fa fa-caret-down" /></button>     
                     <div class="w3-dropdown-content w3-bar-block w3-card-4">
                         <a href="index.xhtml" class="w3-bar-item w3-button">LOGOUT</a>
                     </div>
